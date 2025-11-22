@@ -1,0 +1,17 @@
+{
+  "name": "sync-extension",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "esbuild background.ts content.ts inject.ts --bundle --outdir=. --format=iife --platform=browser --target=chrome100",
+    "watch": "esbuild background.ts content.ts inject.ts --bundle --outdir=. --format=iife --platform=browser --target=chrome100 --watch"
+  },
+  "dependencies": {
+    "socket.io-client": "^4.8.1"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.1.31",
+    "@types/socket.io-client": "^1.4.36",
+    "esbuild": "^0.19.0",
+    "typescript": "^5.9.3"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Sync Video Extension",
+  "version": "1.0",
+  "permissions": ["tabs", "scripting"],
+  "host_permissions": [
+    "*://*.youtube.com/*",
+    "*://*.netflix.com/*",
+    "*://*.primevideo.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.youtube.com/*",
+        "*://*.netflix.com/*",
+        "*://*.primevideo.com/*"
+      ],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_title": "Sync Video"
+  }
+}
