@@ -1,13 +1,19 @@
 {
   "manifest_version": 3,
   "name": "Sync Video Extension",
-  "version": "1.0",
-  "permissions": ["tabs", "scripting"],
+  "version": "1.0.0",
+  "description": "Sync video playback across multiple users in real-time",
+  "permissions": ["storage", "tabs", "activeTab"],
   "host_permissions": [
     "*://*.youtube.com/*",
     "*://*.netflix.com/*",
-    "*://*.primevideo.com/*"
+    "*://*.primevideo.com/*",
+    "*://*/*"
   ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Sync Video"
+  },
   "background": {
     "service_worker": "background.js"
   },
@@ -16,12 +22,11 @@
       "matches": [
         "*://*.youtube.com/*",
         "*://*.netflix.com/*",
-        "*://*.primevideo.com/*"
+        "*://*.primevideo.com/*",
+        "*://*/*"
       ],
-      "js": ["content.js"]
+      "js": ["content.js"],
+      "run_at": "document_idle"
     }
-  ],
-  "action": {
-    "default_title": "Sync Video"
-  }
+  ]
 }
